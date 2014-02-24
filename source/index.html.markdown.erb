@@ -11,7 +11,7 @@ HOME PAGE
   <%= post["slug"] %><br />
   <%= post["url"] %><br />
   <% body = markdown(post["body"]) %><br />
-  <%= body.to_s.gsub('src="/assets', 'src="http://whatredread.com.s3.amazonaws.com/assets') %>
+  <%= body.to_s.gsub('src="/assets', 'src="http://whatredread.siteleaf.s3.amazonaws.com/assets') %>
   <%= post["visibility"] %><br />
   <%= post["created_at"] %><br />
   <%= post["updated_at"] %><br />
