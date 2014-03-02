@@ -1,14 +1,137 @@
-.navigation--primary {
-  .navigation__list {
-  }
-  .navigation__item {
-  }
-  .navigation__link {
-    &:hover {
+html {
+  @extend %font-serif;
+  color:#333;
+  background:#F5F5F5;
+}
+
+.page {
+  overflow-x:hidden;
+}
+
+.header {
+  position:fixed;
+  padding:5px 0;
+  z-index:25;
+  top:0;
+  left:0;
+  width:100%;
+  background:#F5F5F5;
+  border-bottom:1px solid #949494;
+}
+
+.logo {
+  text-align:center;
+  .logo__heading {
+    font-size:24px;
+    @extend %font-sans-serif-super-bold;
+    text-transform:uppercase;
+    em {
+      text-transform:lowercase;
+      font-style:italic;
+      color:#C43331;
+      @extend %font-serif;
+      font-size:42px;
+      padding:0 .1em;
     }
   }
-  .navigation__icon {
+
+}
+
+.toggle {
+  cursor:pointer;
+  &[data-target="aside"] {
+    position:absolute;
+    top:22px;
+    right:5%;
+    font-size:24px;
+    color:#949494;
+    @include transition(color .5s ease-in-out);
+    &:before {
+      @extend %icon-menu;
+    }
+    @include media($desktop) {
+      display:none;
+    }
   }
-  .navigation__copy {
+}
+
+.aside {
+  @include transition(all .5s ease-in-out);
+    box-shadow:2000px 0px 0px 2000px rgba(50, 50, 50, 0);
+  width:250px;
+  left:-250px;
+  padding-top:59px;
+  position:relative;
+  position:fixed;
+  background: #666;
+  height:100%;
+  z-index:20;
+  @include media($desktop) {
+    margin-left:0;
+    @include span-columns(4);
+  }
+}
+
+.overlay {
+  background:#000;
+  @include transition(opacity .5s ease-in-out);
+  opacity:0;
+  height:100%;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10;
+}
+
+.main {
+  position:relative;
+  @include transition(left .5s ease-in-out);
+  padding-left:5%;
+  padding-right:5%;
+  width:100%;
+  padding-top:59px;
+  left:0;
+  @include media($desktop) {
+    padding-left:0;
+    padding-right:0;
+    float:left;
+    @include span-columns(8);
+    @include omega;
+  }
+}
+
+
+.navigation {
+  .navigation__item {
+    height:50px;
+    line-height:50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .navigation__link {
+    color:#FFF;
+    display:block;
+    padding-left:20px;
+    text-transform:uppercase;
+    @extend %font-sans-serif-bold;
+  }
+}
+
+.active--aside {
+  .aside {
+    left:0;
+  }
+  .main {
+    left:250px;
+  }
+  .toggle[data-target="aside"] {
+    color:#DD9493;
+  }
+}
+
+.active--overlay {
+  .aside {
+    box-shadow:2000px 0px 0px 2000px rgba(50, 50, 50, 0.9);
   }
 }
