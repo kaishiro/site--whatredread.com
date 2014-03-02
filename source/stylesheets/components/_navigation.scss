@@ -120,7 +120,7 @@ html {
 
 .active--aside {
   .aside {
-    @include transform(translateX(250px));
+    left:0;
   }
   .main {
     left:250px;
