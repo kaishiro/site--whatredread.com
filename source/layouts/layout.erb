@@ -7,12 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
     <title><%= yield_content(:title) || "The Middleman" %></title>
-    
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Gentium+Book+Basic:400,400italic" rel="stylesheet" type="text/css"> 
     <%= stylesheet_link_tag "all" %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <%= javascript_include_tag  "all" %>
   </head>
   
   <body class="page <%= page_classes %>">
-    <%= yield %>
+
+    <header class="header">
+      <div class="logo">
+        <h1 class="logo__heading">what<em>red</em>read</h1>
+      </div>
+      <div class="toggle" data-target="aside"></div>
+    </header>
+
+    <aside class="aside">
+        <nav class="navigation navigation--primary">
+          <ul class="navigation__list">
+            <li class="navigation__item">
+              <a class="navigation__link" href="#"><span class="navigation__copy">About</span></a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="#"><span class="navigation__copy">Posts</span></a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="#"><span class="navigation__copy">Bookshelf</span></a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="#"><span class="navigation__copy">Contact</span></a>
+            </li>
+          </ul>
+        </nav>
+    </aside>
+
+    <main class="main">
+      <%= yield %>
+    </main>
+
+    <footer class="footer">
+    </footer>
+
+
   </body>
 </html>
