@@ -1,6 +1,10 @@
 // Font Families
 %font-family-sans-serif {
-  font-family: arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+%font-family-serif {
+  font-family: 'Gentium Book Basic', serif;
 }
 
 // Font Weights
@@ -13,7 +17,11 @@
 }
 
 %font-weight-bold {
-  font-weight: 700;
+  font-weight: 600;
+}
+
+%font-weight-super-bold {
+  font-weight: 800;
 }
 
 // Font Styles
@@ -31,7 +39,7 @@
   @extend %font-weight-light;
 }
 
-%font-sans-serif-regular {
+%font-sans-serif {
   @extend %font-family-sans-serif;
   @extend %font-weight-regular;
 }
@@ -39,4 +47,89 @@
 %font-sans-serif-bold {
   @extend %font-family-sans-serif;
   @extend %font-weight-bold;
+}
+
+%font-sans-serif-super-bold {
+  @extend %font-family-sans-serif;
+  @extend %font-weight-super-bold;
+}
+
+%font-serif-light {
+  @extend %font-family-serif;
+  @extend %font-weight-light;
+}
+
+%font-serif {
+  @extend %font-family-serif;
+  @extend %font-weight-regular;
+}
+
+%font-serif-bold {
+  @extend %font-family-serif;
+  @extend %font-weight-bold;
+}
+
+// Icon Fonts
+
+@font-face {
+  font-family: "icons";
+  src:url("/fonts/icons/icons.eot");
+  src:url("/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/icons/icons.woff") format("woff"),
+    url("/fonts/icons/icons.ttf") format("truetype"),
+    url("/fonts/icons/icons.svg#icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+%icon {
+  font-family: "icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%icon-menu {
+  @extend %icon;
+  content:"a";
+}
+
+%icon-print {
+  @extend %icon;
+  content:"b";
+}
+
+%icon-twitter {
+  @extend %icon;
+  content:"c";
+}
+
+%icon-facebook {
+  @extend %icon;
+  content:"d";
+}
+
+%icon-mail {
+  @extend %icon;
+  content:"e";
+}
+
+%icon-rss {
+  @extend %icon;
+  content:"f";
+}
+
+%icon-comment {
+  @extend %icon;
+  content:"h";
+}
+
+%icon-search {
+  @extend %icon;
+  content:"g";
 }

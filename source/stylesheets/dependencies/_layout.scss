@@ -1,0 +1,13 @@
+.page {
+  @include outer-container;
+  @include media($mobile) {
+    
+  }
+
+  @include media($tablet) {
+  }
+
+  @include media($desktop) {
+  }
+}
+
