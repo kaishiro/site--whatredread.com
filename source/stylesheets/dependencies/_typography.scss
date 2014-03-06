@@ -133,3 +133,25 @@
   @extend %icon;
   content:"g";
 }
+
+
+
+$base-font-size:1em;
+
+$scale-4: golden-ratio($base-font-size, -4);
+$scale-3: golden-ratio($base-font-size, -3);
+$scale-2: golden-ratio($base-font-size, -2);
+$scale-1: golden-ratio($base-font-size, -1);
+$scale:   golden-ratio($base-font-size, 0);
+$scale1:  golden-ratio($base-font-size, 1);
+$scale2:  golden-ratio($base-font-size, 2);
+$scale3:  golden-ratio($base-font-size, 3);
+$scale4:  golden-ratio($base-font-size, 4);
+$scale5:  golden-ratio($base-font-size, 5);
+$scale6:  golden-ratio($base-font-size, 6);
+$scale7:  golden-ratio($base-font-size, 7);
+$scale8:  golden-ratio($base-font-size, 8);
+$scale9:  golden-ratio($base-font-size, 9);
+$scale10: golden-ratio($base-font-size, 10);
+$scale11: golden-ratio($base-font-size, 11);
+$scale12: golden-ratio($base-font-size, 12);
