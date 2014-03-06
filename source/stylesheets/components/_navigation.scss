@@ -1,7 +1,14 @@
 html {
-  @extend %font-serif;
   color:#333;
   background:#F5F5F5;
+  @extend %font-serif;
+  font-size:16px;
+  @include media($tablet) {
+    font-size:18px;
+  }
+  @include media($desktop) {
+    font-size:20px;
+  }
 }
 
 .page {
@@ -17,12 +24,17 @@ html {
   width:100%;
   background:#F5F5F5;
   border-bottom:1px solid #949494;
+  @include media($desktop) {
+    position:relative;
+    @include span-columns(4);
+  }
 }
 
 .logo {
   text-align:center;
   .logo__heading {
-    font-size:24px;
+    color:#333;
+    font-size:$scale;
     @extend %font-sans-serif-super-bold;
     text-transform:uppercase;
     em {
@@ -30,9 +42,11 @@ html {
       font-style:italic;
       color:#C43331;
       @extend %font-serif;
-      font-size:42px;
       padding:0 .1em;
+      font-size:$scale1;
     }
+  }
+  @include media($tablet) {
   }
 
 }
@@ -45,6 +59,10 @@ html {
     right:5%;
     font-size:24px;
     color:#949494;
+    background:none;
+    border:none;
+    padding:0;
+    margin:0;
     @include transition(color .5s ease-in-out);
     &:before {
       @extend %icon-menu;
@@ -57,7 +75,7 @@ html {
 
 .aside {
   @include transition(all .5s ease-in-out);
-    box-shadow:2000px 0px 0px 2000px rgba(50, 50, 50, 0);
+  box-shadow:2000px 0px 0px 2000px rgba(50, 50, 50, 0);
   width:250px;
   left:-250px;
   padding-top:59px;
@@ -67,8 +85,10 @@ html {
   height:100%;
   z-index:20;
   @include media($desktop) {
-    margin-left:0;
+    position:relative;
     @include span-columns(4);
+    left:0;
+    clear:left;
   }
 }
 
@@ -98,6 +118,7 @@ html {
     float:left;
     @include span-columns(8);
     @include omega;
+    padding-top:0;
   }
 }
 
@@ -133,5 +154,60 @@ html {
 .active--overlay {
   .aside {
     box-shadow:2000px 0px 0px 2000px rgba(50, 50, 50, 0.9);
+  }
+}
+
+.article {
+  margin-top:$scale2;
+  margin-bottom:$scale4;
+  .article__title {
+    font-style:italic;
+    font-size:$scale2;
+    line-height:$scale;
+    text-align:center;
+    em {
+      @extend %font-sans-serif-super-bold;
+      text-transform:uppercase;
+    }
+  }
+  .article__byline {
+    margin:$scale2 0 $scale;
+    border-top:1px solid #333; 
+    display:block;
+    font-size:$scale;
+    text-align:center;
+  }
+  .article__timestamp {
+    position:relative;
+    background:#F5F5F5;
+    top:-$scale-1;
+    padding:0 1em; 
+  }
+  .article__body {
+    font-size:$scale;
+    line-height:$scale1;
+    a {
+      color:#C43331;
+    }
+    p {
+      margin:$scale 0;
+    }
+    code {
+      position:relative;
+      top:-$scale-1;
+      font-size:$scale-1;
+      color:#C43331;
+      padding:0 $scale-4;
+    }
+  }
+  @include media($tablet) {
+    .article__title {
+    }
+  }
+  @include media($desktop) {
+    .article__title {
+      em {
+      }
+    }
   }
 }
