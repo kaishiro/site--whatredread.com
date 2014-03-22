@@ -10,7 +10,7 @@ Siteleaf.api_secret = ENV['SITELEAF_SECRET']
 set :client, Goodreads::Client.new(:api_key => ENV['GOODREADS_KEY'], :api_secret => ENV['GOODREADS_SECRET'])
 
 set :markdown_engine, :redcarpet
-
+activate :directory_indexes
 
 # Automatic image dimensions on image_tag helper
 activate :automatic_image_sizes
@@ -32,16 +32,24 @@ set :images_dir, 'images'
 
 # Build-specific configuration
 configure :build do
-  posts = Siteleaf::Page.find('52ad0a9c5dde22956400010c').posts.to_json
-  File.open('./data/posts.json', 'w') do |file|  
-    file.puts posts 
-  end
-  
-  site = Siteleaf::Site.find('529f51115dde225c35000412').to_json
+  site = Siteleaf::Site.find('529f51115dde225c35000412')
+  site_json = site.to_json
   File.open('./data/site.json', 'w') do |file|  
-    file.puts site 
+    file.puts site_json 
   end
 
+  pages = site.pages
+  pages_json = pages.to_json
+  File.open('./data/pages.json', 'w') do |file|
+    file.puts pages_json
+  end
+
+  posts = Siteleaf::Page.find('532205b15dde226419000339').posts
+  posts_json = posts.to_json
+  File.open('./data/posts.json', 'w') do |file|  
+    file.puts posts_json
+  end
+  
   # Minify Javascript on build
   # activate :minify_javascript
 
@@ -64,4 +72,15 @@ activate :s3_sync do |s3_sync|
   s3_sync.reduced_redundancy_storage = false
   s3_sync.acl                        = 'public-read'
   s3_sync.encryption                 = false 
+end
+
+data.posts.each do |post|
+  published_year = DateTime.strptime(post["published_at"], "%Y").strftime("%Y")
+  proxy "/articles/" + published_year + "/#{post[:slug]}.html", "/articles/template.html", :layout => layout, :locals => { :post => post }, :ignore => true
+end
+
+activate :pagination do
+  pageable_set :posts do
+    data.posts
+  end
 end
