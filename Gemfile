@@ -36,3 +36,5 @@ gem "goodreads"
 
 # Siteleaf - Exposes access to the Siteleaf API
 gem "siteleaf", :git => "git://github.com/siteleaf/siteleaf-gem.git"
+
+gem "nokogiri"

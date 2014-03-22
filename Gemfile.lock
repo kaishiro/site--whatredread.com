@@ -180,6 +180,7 @@ DEPENDENCIES
   middleman-neat
   middleman-pagination
   middleman-s3_sync
+  nokogiri
   puma
   redcarpet
   siteleaf!
