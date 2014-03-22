@@ -89,7 +89,6 @@
   font-variant: normal !important;
   text-transform: none !important;
   speak: none;
-  line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -137,6 +136,11 @@
 
 
 $base-font-size:1em;
+$base-font-size-px-mobile:16px;
+$base-font-size-px-tablet:18px;
+$base-font-size-px-desktop:20px;
+
+
 
 $scale-4: golden-ratio($base-font-size, -4);
 $scale-3: golden-ratio($base-font-size, -3);

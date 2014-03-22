@@ -8,7 +8,7 @@ $width-desktop: em(975, 16);
 $width-desktop-max: em(950, 20);
 
 // Max-width Setting for Neat's outer-container() mixin
-$max-width: $width-desktop-max;
+$max-width: $width-mobile-max;
 
 // Breakpoints for Neat's media() mixin
 $mobile: new-breakpoint(max-width $width-tablet 4);

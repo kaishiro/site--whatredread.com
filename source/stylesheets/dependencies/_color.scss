@@ -11,5 +11,5 @@ $color-crimson: #DC403B;
 // Colors: Semantic
 $color-text: $color-mineralgreen;
 $color-text-invert: $color-white;
-$color-text-link: $color-danube;
-$color-text-link-hover: $color-mineralgreen;
+$color-text-link: #C43331;
+$color-text-link-hover: darken($color-text-link, 10%);
