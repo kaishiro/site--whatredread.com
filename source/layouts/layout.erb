@@ -11,7 +11,6 @@
     <%= partial "partials/css" %>
     <%= partial "partials/js" %>
     <%= partial "partials/link" %>
-    <link rel="stylesheet" type="text/css" href="//cdn.moot.it/1/moot.css">
   </head>
   
   <body class="page <%= page_classes %>">
@@ -26,19 +25,12 @@
 
     </header>
 
-    <% hero_count = Dir["build/images/banners/*"].length %>
-    <% hero_url = "/images/banners/hero" + (1..hero_count).to_a.sample.to_s.rjust(2, "0") + ".jpg" %>
-    <div class="hero" style="background-image:url('<%= hero_url %>');"></div>
-
-    <main class="main" role="main">
-      <%= yield %>
-    </main>
+    <%= yield %>
 
     <footer class="footer">
     </footer>
 
     <%= partial "partials/foot/js" %>
 
-    <script src="https://cdn.moot.it/1/moot.min.js"></script>
   </body>
 </html>

@@ -1,0 +1,11 @@
+<% wrap_layout :layout do %>
+
+  <% hero_count = Dir["build/images/banners/*"].length %>
+  <% hero_url = "/images/banners/hero" + (1..hero_count).to_a.sample.to_s.rjust(2, "0") + ".jpg" %>
+  <div class="hero" style="background-image:url('<%= hero_url %>');"></div>
+
+  <main class="main" role="main">
+    <%= yield %>
+  </main>
+
+<% end %>
