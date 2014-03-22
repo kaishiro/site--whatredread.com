@@ -101,6 +101,8 @@ GEM
     middleman-neat (0.0.4)
       bourbon (>= 2.1)
       neat (>= 1.1.0)
+    middleman-pagination (1.1.0)
+      middleman-core (~> 3.2.0)
     middleman-s3_sync (3.0.24)
       colorize
       fog (>= 1.10.1)
@@ -176,6 +178,7 @@ DEPENDENCIES
   middleman-bourbon
   middleman-livereload (~> 3.1.0)
   middleman-neat
+  middleman-pagination
   middleman-s3_sync
   puma
   redcarpet

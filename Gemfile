@@ -19,6 +19,9 @@ gem "middleman-neat"
 # Middleman S3 Sync - Allows sync between middleman build and Amazon S3
 gem "middleman-s3_sync"
 
+# Middleman Pagination - Allows pagination for proxy pages
+gem "middleman-pagination"
+
 # Puma - Server for local and Heroku deployment 
 gem "puma"
 
