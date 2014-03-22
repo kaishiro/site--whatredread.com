@@ -76,7 +76,7 @@ end
 
 data.posts.each do |post|
   published_year = DateTime.strptime(post["published_at"], "%Y").strftime("%Y")
-  proxy "/articles/" + published_year + "/#{post[:slug]}.html", "/articles/template.html", :layout => layout_article, :locals => { :post => post }, :ignore => true
+  proxy "/articles/" + published_year + "/#{post[:slug]}.html", "/articles/template.html", :layout => layout, :locals => { :post => post }, :ignore => true
 end
 
 activate :pagination do
