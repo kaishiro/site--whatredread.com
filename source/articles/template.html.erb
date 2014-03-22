@@ -4,37 +4,41 @@
   <%= post["title"].gsub('*', '').split.map(&:capitalize).*' ' %>
 <% end %>
 
-<article class="article article--feature" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+<main class="main" role="main">
 
-  <header class="article__header">
-    <h2 class="article__title"><%= markdown(post["title"]) %></h2>
-    <h3 class="article__byline">
-      <time class="article__timestamp" itemprop="dateCreated" datetime="<%= post["published_at"] %>">
-        <%= DateTime.strptime(post["published_at"]).strftime("%A, %B %-d %Y") %>
-      </time>
-    </h3>
-  </header>
+  <article class="article article--feature" role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <div class="article__main">
-    <div class="article__body">
-      <%= markdown(post['body']).gsub('src="/assets', 'src="http://whatredread.siteleaf.s3.amazonaws.com/assets') %>
+    <header class="article__header">
+      <h2 class="article__title"><%= markdown(post["title"]) %></h2>
+      <h3 class="article__byline">
+        <time class="article__timestamp" itemprop="dateCreated" datetime="<%= post["published_at"] %>">
+          <%= DateTime.strptime(post["published_at"]).strftime("%A, %B %-d %Y") %>
+        </time>
+      </h3>
+    </header>
+
+    <div class="article__main">
+      <div class="article__body">
+        <%= markdown(post['body']).gsub('src="/assets', 'src="http://whatredread.siteleaf.s3.amazonaws.com/assets') %>
+      </div>
     </div>
-  </div>
 
-  <footer class="article__footer">
-    <div class="article__comments">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-          var disqus_shortname = 'whatredread';
+    <footer class="article__footer">
+      <div class="article__comments">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'whatredread';
 
-          (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-    </div>
-    
-  </footer>
+            (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+      </div>
+      
+    </footer>
 
-</article>
+  </article>
+
+</main>
