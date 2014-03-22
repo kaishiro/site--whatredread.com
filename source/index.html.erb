@@ -26,10 +26,14 @@ pagination:
 
       <div class="article__main">
         <div class="article__body">
-          <% if markdown(post['body']).split.size <= 150 %>
-            <%= markdown(post['body']).gsub('src="/assets', 'src="http://whatredread.siteleaf.s3.amazonaws.com/assets') %>
+          <% body_raw = markdown(post['body']) %>
+          <% body_parsed = Nokogiri::HTML.fragment(body_raw) %>
+          <% body_parsed.search('.//img').remove %>
+          <% body = body_parsed.to_s %>
+          <% if body.split.size <= 150 %>
+            <%= body %>
           <% else %>
-            <%= markdown(post['body']).split[0...150].join(' ').gsub('src="/assets', 'src="http://whatredread.siteleaf.s3.amazonaws.com/assets') %>...
+            <%= body.split[0...150].join(' ')  %>...
             <a href="/articles/<%= published_year %>/<%= post["slug"] %>" class="article__readmore">Continue Reading</a>
           <% end %>
         </div>
