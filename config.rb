@@ -44,12 +44,29 @@ configure :build do
     file.puts pages_json
   end
 
+  pages_array = JSON.parse(File.read('data/pages.json'))
+
+  pages_array.each do |page|
+
+    page_id = page["id"]
+    page_slug = page["slug"].gsub('-', '')
+
+    page_obj = Siteleaf::Page.find(page_id)
+
+    page_json = page_obj.to_json
+
+    File.open("./data/page_#{page_slug}.json", 'w') do |file|  
+      file.puts page_json
+    end
+
+  end
+
   posts = Siteleaf::Page.find('532205b15dde226419000339').posts
   posts_json = posts.to_json
   File.open('./data/posts.json', 'w') do |file|  
     file.puts posts_json
   end
-  
+
   # Minify Javascript on build
   # activate :minify_javascript
 
