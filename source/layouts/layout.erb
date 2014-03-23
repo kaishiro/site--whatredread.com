@@ -43,7 +43,7 @@
             <% shelf_currently_reading = client.shelf(5200240, 'currently-reading') %>
             <% books_currently_reading = shelf_currently_reading.books %>
             <ul class="listing listing--books">
-              <% books_currently_reading.each do |item| %>
+              <% data.currentlyReading.each do |item| %>
                 <li class="listing__item">
                   <a class="listing__link" href="<%= item["book"]["link"] %>" target="_blank">
                     <img class="listing__image" src="<%= item["book"]["image_url"] %>" />
