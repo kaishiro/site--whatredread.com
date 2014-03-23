@@ -67,6 +67,15 @@ configure :build do
     file.puts posts_json
   end
 
+  shelf_currently_reading = client.shelf(5200240, 'currently-reading')
+  books_currently_reading = shelf_currently_reading.books
+  books = books_currently_reading.to_json
+  File.open('./data/currentlyReading.json', 'w') do |file|  
+    file.puts books
+  end
+
+
+
   # Minify Javascript on build
   # activate :minify_javascript
 
