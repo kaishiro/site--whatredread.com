@@ -28,7 +28,72 @@
     <%= yield %>
 
     <footer class="footer">
+      <div class="footer__inner"> 
+        <section class="footer__section">
+          <h3 class="footer__heading">About Red</h3>
+          <div class="footer__content">
+            <img src="http://www.gravatar.com/avatar/0b42a309df2cb547535e4fdb66ae74ee.jpg?s=75" />
+            <%= markdown(data.page_about["body"]) %>
+          </div>
+        </section>
+
+        <section class="footer__section">
+          <h3 class="footer__heading">Currently Reading</h3>
+          <div class="footer__content">
+            <% shelf_currently_reading = client.shelf(5200240, 'currently-reading') %>
+            <% books_currently_reading = shelf_currently_reading.books %>
+            <ul class="listing listing--books">
+              <% books_currently_reading.each do |item| %>
+                <li class="listing__item">
+                  <a class="listing__link" href="<%= item["book"]["link"] %>" target="_blank">
+                    <img class="listing__image" src="<%= item["book"]["image_url"] %>" />
+                    <p class="listing__copy"><%= item["book"]["title"] %></p>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </section>
+
+        <section class="footer__section footer__section--stacked">
+          <h3 class="footer__heading">Readalongs</h3>
+          <div class="footer__content">
+            <%= markdown(data.page_readalongs["body"]) %>
+          </div>
+        </section>
+
+        <section class="footer__section footer__section--stacked">
+          <h3 class="footer__heading">Archives</h3>
+          <div class="footer__content">
+            <ul class="linklist">
+              <li class="linklist__item">
+                <a class="linklist__link" href="#"><span class="linklist__copy">2014</span></a>
+              </li>
+              <li class="linklist__item">
+                <a class="linklist__link" href="#"><span class="linklist__copy">2013</span></a>
+              </li>
+              <li class="linklist__item">
+                <a class="linklist__link" href="#"><span class="linklist__copy">2012</span></a>
+              </li>
+              <li class="linklist__item">
+                <a class="linklist__link" href="#"><span class="linklist__copy">2011</span></a>
+              </li>
+              <li class="linklist__item">
+                <a class="linklist__link" href="#"><span class="linklist__copy">2010</span></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="footer__section footer__section--stacked">
+          <h3 class="footer__heading footer__heading--no-underline">
+            <a class="footer__link" href="#">Review Policy</a>
+          </h3> 
+        </section>
+      </div>
     </footer>
+
+    
 
     <%= partial "partials/foot/js" %>
 
