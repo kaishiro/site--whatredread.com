@@ -1,0 +1,40 @@
+---
+layout: layout_page
+---
+
+<% page = data.page_contact %>
+
+<section class="chapter">
+
+<h1 class="page__title">
+  <%= page["title"] %>
+</h1>
+
+<div class="page__content">
+
+  <p class="page__copy">
+    <%= page["body"] %>
+  </p>
+
+  <dl class="dictionary dictionary--contact">
+    <% page["meta"].each do |meta| %>
+      <dt class="dictionary__term">
+        <%= meta["key"].capitalize %>
+      </dt>
+      <dd class="dictionary__definition">
+        <%= meta["value"] %>
+      </dd>
+    <% end %>
+  </dl>
+
+
+  <form class="form form--contact"  action="//api.formspree.com/red@whatredread.com" method="POST">
+    <input type="hidden" name="_next" value="//whatredread.com/contact/thanks" />
+    <input class="form__input form__input--text" type="text" role="textbox" name="name">
+    <input class="form__input form__input--email" type="email" role="textbox" name="_replyto">
+    <input class="form__input form__input--submit" type="submit" role="button" value="Send">
+  </form>
+
+</div>
+
+
