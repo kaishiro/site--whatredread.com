@@ -1,0 +1,11 @@
+<%
+entries = []
+data.posts.each do |post|
+  published_year = DateTime.strptime(post["published_at"], "%Y").strftime("%Y")
+  entry = {
+    :title => post["title"], 
+    :url => 'articles/' + published_year + '/' + post["slug"],
+  }
+  entries << entry
+end
+%><%=entries.to_json %>
