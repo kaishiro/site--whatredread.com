@@ -50,8 +50,5 @@ pagination:
 
 <div class="pagination">
   <%= link_to "Older Articles", pagination.next_page.url if pagination.next_page %>
-  <%= link_to "Newer Articles", pagination.next_page.url if pagination.next_page %>
+  <%= link_to "Newer Articles", pagination.prev_page.url if pagination.prev_page %>
 </div>
-
-<! shelf = client.shelf(5200240, 'currently-reading') %>
-<! shelf.books %>
