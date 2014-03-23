@@ -15,6 +15,35 @@
           <%= DateTime.strptime(post["published_at"]).strftime("%A, %B %-d %Y") %>
         </time>
       </h3>
+
+      <ul class="article__share share">
+        <li class="share__item share__item--facebook">
+          <a href="http://www.facebook.com/sharer.php?s=100&amp;p[url]=<%= 'http://whatredread.com' + current_page.url %>&amp;p[title]=<%= URI::encode(post["title"]) %> %>" class="share__link" target="_blank"><span class="share__copy">Facebook</span></a>
+        </li>
+        <li class="share__item share__item--twitter">
+
+          <% tweet_url_base = 'https://twitter.com/home?status=' + URI::encode('#WhatRedRead:') %>
+          <% if post["title"].length <= 100 %>
+            <% tweet_url_title = URI::encode(post["title"].gsub('*', '').titleize) %>
+          <% else %>
+            <% tweet_url_title = URI::encode(post["title"][0...102].gsub('*', '').titleize) + '...' %>
+          <% end %>
+          <% tweet_url_link = '(http://whatredread.com' + current_page.url + ')' %>
+          <% tweet_url = tweet_url_base + ' ' + tweet_url_title + ' ' + tweet_url_link %>
+
+          <a href="<%= tweet_url %>" class="share__link" target="_blank"><span class="share__copy">Twitter</span></a>
+        </li>
+        <li class="share__item share__item--email">
+        <% email_url = 'http://whatredread.com' + current_page.url %>
+        <a href="mailto:%20?subject=What%20Red%20Read:%20<%= URI::encode(post["title"].gsub('*', '').titleize) %>&body=<%= URI::encode(post["title"].gsub('*', '').titleize) + '%20(' + URI::encode(DateTime.strptime(post["published_at"]).strftime("%A, %B %-d %Y")) + ')'%>%0D%0A%0D%0A<%= email_url %>" class="share__link" target="_blank"><span class="share__copy">Email</span></a>
+        </li>
+        <li class="share__item share__item--print">
+          <a href="javascript:window.print();" class="share__link" target="_blank"><span class="share__copy">Print</span></a>
+        </li>
+        <li class="share__item share__item--comments">
+          <a href="#comments" class="scroll share__link"><span class="share__copy">Comments</span></a>
+        </li>
+      </ul>
     </header>
 
     <div class="article__main">
@@ -24,7 +53,9 @@
     </div>
 
     <footer class="article__footer">
-      <div class="article__comments">
+      <div class="article__comments comments" id="comments">
+        <div class="comments__mask comments__mask--topright"></div>
+        <div class="comments__mask comments__mask--bottom"></div>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
             var disqus_shortname = 'whatredread';
