@@ -1,0 +1,17 @@
+---
+layout: layout_page
+---
+
+
+<% shelf_currently_reading = client.shelf(5200240, 'read') %>
+<% books_currently_reading = shelf_currently_reading.books %>
+<ul class="listing listing--books">
+  <% books_currently_reading.each do |item| %>
+    <li class="listing__item">
+      <a class="listing__link" href="<%= item["book"]["link"] %>" target="_blank">
+        <img class="listing__image" src="<%= item["book"]["image_url"] %>" />
+        <p class="listing__copy"><%= item["book"]["title"] %></p>
+      </a>
+    </li>
+  <% end %>
+</ul>
