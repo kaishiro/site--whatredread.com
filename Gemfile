@@ -2,7 +2,7 @@
 source 'http://rubygems.org'
 
 # Ruby - Version
-ruby "2.0.0"
+ruby "2.1.2"
 
 # Middleman - The man
 gem "middleman", "3.3.3"
