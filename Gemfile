@@ -5,36 +5,36 @@ source 'http://rubygems.org'
 ruby "2.0.0"
 
 # Middleman - The man
-gem "middleman", "~>3.2.2"
+gem "middleman", "3.3.3"
 
 # Middleman Livereload - Auto-refresh on change
-gem "middleman-livereload", "~> 3.1.0"
+gem "middleman-livereload", "3.3.4"
 
 # Middleman Bourbon - Injects support for Bourbon into the asset pipeline
-gem "middleman-bourbon"
+gem "middleman-bourbon", "0.0.2"
 
 # Middleman Neat - Injects support for Neat (Bourbon's semantic grid) into the asset pipeline
-gem "middleman-neat"
+gem "middleman-neat", "0.0.4"
 
 # Middleman S3 Sync - Allows sync between middleman build and Amazon S3
-gem "middleman-s3_sync"
+gem "middleman-s3_sync", "3.0.30"
 
 # Middleman Pagination - Allows pagination for proxy pages
-gem "middleman-pagination"
+gem "middleman-pagination", "1.1.1"
 
 # Puma - Server for local and Heroku deployment 
-gem "puma"
+gem "puma", "2.8.2"
 
 # Redcarpet - Alternative markdown processor 
-gem "redcarpet"
+gem "redcarpet", "3.1.2"
 
 # httparty - For working with gemless HTTP APIs, required by Siteleaf gem
 gem "httparty", "0.11.0"
 
 # Goodreads - Exposes access to the Goodreads API
-gem "goodreads"
+gem "goodreads", "0.3.0"
 
 # Siteleaf - Exposes access to the Siteleaf API
-gem "siteleaf", :git => "git://github.com/siteleaf/siteleaf-gem.git"
+gem "siteleaf", "0.9.21"
 
-gem "nokogiri"
+gem "nokogiri", "1.6.2.1"
